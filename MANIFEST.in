@@ -1,4 +1,3 @@
-recursive-include honeybee_ref *
 recursive-include honeybee_energy_ref *
 recursive-exclude tests *
 recursive-exclude _coverage_html *

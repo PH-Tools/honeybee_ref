@@ -1,31 +1,25 @@
-# Honeybee-REVIVE:
-### A Phius-REVIVE plugin for Honeybee and Ladybug-Tools
+# Honeybee-ref:
+### A Honeybee extension for tracking reference information and source data related to Honeybee-Objects.
 
-Honeybee-REVIVE is a free plugin for [Ladybug Tools](https://www.ladybug.tools/) which enables users to add detailed [Phius-REVIVE](https://www.phius.org/phius-revive-2024) style attributes to their models alongside the normal Honeybee inputs. 
+Honeybee-Ref is a free plugin for [Ladybug Tools](https://www.ladybug.tools/) which enables users to add source and reference data such as URLs to Honeybee-Energy objects.
 
-This plugin is designed as a plugin for Honeybee v1.8. It can also be utilized by the Ladybug toolkit for building up models within [Rhino 3D v8+](https://www.rhino3d.com/) and Grasshopper using the [honeybee_grasshopper_revive](https://github.com/PH-Tools/honeybee_grasshopper_REVIVE) tools. This extension relies on the [PH-ADORB](https://github.com/PH-Tools/PH_ADORB) library to execute the actual carbon-cost calculations.
+This plugin is designed as a plugin for Honeybee v1.8. It can also be utilized by the Ladybug toolkit for building up models within [Rhino 3D v8+](https://www.rhino3d.com/).
 
-
-#### *Note: PH-Tools and this PH-ADORB library is in no way affiliated with Phius, and the library here is neither reviewed, nor approved by Phius for use in complying with the REVIVE program.*
 
 <details>
 <summary><strong>Packages:</strong></summary>
 
-- **honeybee_revive:** Extend the basic Honeybee extension package with new Phius-REVIVE specific model elements.
-
-- **honeybee_energy_revive:** Extend the Honeybee-Energy package with new Phius-REVIVE style attributes for elements such as windows, hvac and construction assemblies.
-
-- **honeybee_revive_standards:** Helpful new standards for programs and assemblies which are especially relevant to Passive House practitioners.
+- **honeybee_energy_ref:** Extend the Honeybee-Energy package with new 'ref' property slot.
 
 </details>
 
 <details>
 <summary><strong>Installation:</strong></summary>
 
-This package is [hosted on PyPi](https://pypi.org/project/honeybee-REVIVE/). To install the latests version of the package:
+This package is [hosted on PyPi](https://pypi.org/project/honeybee-ref/). To install the latests version of the package:
 
 ```python
->>> pip install honeybee-revive
+>>> pip install honeybee-ref
 ```
 </details>
 
@@ -33,7 +27,7 @@ This package is [hosted on PyPi](https://pypi.org/project/honeybee-REVIVE/). To 
 <summary><strong>Development:</strong></summary>
 
 ### Development [Local]:
-Honeybee-REVIVE is free and open-source. We welcome any and all thoughts, opinions, and contributions! To get setup for local development:
+honeybee-ref is free and open-source. We welcome any and all thoughts, opinions, and contributions! To get setup for local development:
 1. **Fork** this GitHub repository to your own GitHub account.
 1. **Clone** the new repository-fork onto your own computer.
 ![Screenshot 2024-10-01 at 3 48 51 PM](https://github.com/user-attachments/assets/6b7e0853-4b90-4b05-9344-8ced9ff04de9)
@@ -45,14 +39,14 @@ Honeybee-REVIVE is free and open-source. We welcome any and all thoughts, opinio
 1. Submit a **Pull-Request** to merge your new Branch and its changes into the main branch.
 
 ### Development [Tests]:
-Note that Honeybee-REVIVE uses [`pytest`](https://docs.pytest.org/en/stable/#) to run all of the automated testing. Please be sure to include tests for any contributions or edits.
+Note that Honeybee-ref uses [`pytest`](https://docs.pytest.org/en/stable/#) to run all of the automated testing. Please be sure to include tests for any contributions or edits.
 
 ### Development [Deployment]:
-This package is [published on PyPi](https://pypi.org/project/honeybee-REVIVE/). To deploy a new version:
-1. Update the [pyproject.toml version number](https://github.com/PH-Tools/honeybee_REVIVE/blob/04039ea13f699cd81a76f036c44af628b9dba946/pyproject.toml#L3)
+This package is [published on PyPi](https://pypi.org/project/honeybee-ref/). To deploy a new version:
+1. Update the [pyproject.toml version number](https://github.com/PH-Tools/honeybee_ref/blob/04039ea13f699cd81a76f036c44af628b9dba946/pyproject.toml#L3)
 1. Publish a new release through the GitHub repository page:
 ![Screenshot 2024-09-26 at 10 05 14 AM](https://github.com/user-attachments/assets/8e831f39-03ee-4704-8a78-f3353960b3ea)
-1. This is will trigger the [ci.yaml](https://github.com/PH-Tools/honeybee_REVIVE/blob/main/.github/workflows/ci.yaml) GitHub Action, build, and deploy the package.
+1. This is will trigger the [ci.yaml](https://github.com/PH-Tools/honeybee_ref/blob/main/.github/workflows/ci.yaml) GitHub Action, build, and deploy the package.
 </details>
 
 <details>
@@ -62,9 +56,9 @@ For more information on the use of these tools, check out the the Passive House 
 [https://www.PassiveHouseTools.com](https://www.PassiveHouseTools.com)
 
 ### Contact:
-For questions about Honeybee-REVIVE, feel free to reach out at: PHTools@bldgtyp.com
+For questions about `honeybee-ref`, feel free to reach out at: PHTools@bldgtyp.com
 
 You can also post questions or comment to the Ladybug-Tools use forum at: [https://discourse.ladybug.tools/](https://discourse.ladybug.tools/)
 </details>
 
-![Tests](https://github.com/PH-Tools/honeybee_revive/actions/workflows/ci.yaml/badge.svg)
+![Tests](https://github.com/PH-Tools/honeybee_ref/actions/workflows/ci.yaml/badge.svg)
