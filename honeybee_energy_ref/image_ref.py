@@ -8,11 +8,11 @@ from uuid import uuid4
 
 class ImageReference(object):
 
-    def __init__(self):
-        # type: () -> None
+    def __init__(self, thumbnail_image_uri=None, full_size_image_uri=None):
+        # type: ( str | None, str | None) -> None
         self.identifier = "img" + str(uuid4())[:8]
-        self.thumbnail_image_uri = None  # type: str | None
-        self.full_size_image_uri = None  # type: str | None
+        self.thumbnail_image_uri = thumbnail_image_uri
+        self.full_size_image_uri = full_size_image_uri
 
     def to_dict(self):
         # type: () -> dict

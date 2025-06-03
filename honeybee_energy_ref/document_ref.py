@@ -8,12 +8,12 @@ from uuid import uuid4
 
 class DocumentReference(object):
 
-    def __init__(self):
-        # type: () -> None
+    def __init__(self, document_uri=None, thumbnail_image_uri=None, full_size_image_uri=None):
+        # type: (str | None, str | None, str | None) -> None
         self.identifier = "doc" + str(uuid4())[:8]
-        self.document_uri = None  # type: str | None
-        self.thumbnail_image_uri = None  # type: str | None
-        self.full_size_image_uri = None  # type: str | None
+        self.document_uri = document_uri
+        self.thumbnail_image_uri = thumbnail_image_uri
+        self.full_size_image_uri = full_size_image_uri
 
     def to_dict(self):
         # type: () -> dict
