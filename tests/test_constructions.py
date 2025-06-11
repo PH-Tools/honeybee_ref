@@ -1,23 +1,22 @@
 import pytest
-
 from honeybee_energy.properties.extension import (
     OpaqueConstructionProperties,
     ShadeConstructionProperties,
     WindowConstructionProperties,
     WindowConstructionShadeProperties,
 )
-from honeybee_energy_ref.properties.hb_obj import _HBObjectWithReferences
 
+from honeybee_energy_ref.properties.hb_obj import _HBObjectWithReferences
 
 
 @pytest.mark.parametrize(
     "cls",
     [
-    OpaqueConstructionProperties,
-    ShadeConstructionProperties,
-    WindowConstructionProperties,
-    WindowConstructionShadeProperties,
-    ]
+        OpaqueConstructionProperties,
+        ShadeConstructionProperties,
+        WindowConstructionProperties,
+        WindowConstructionShadeProperties,
+    ],
 )
 def test_material_properties(cls):
     hb_obj = cls(None)
@@ -27,11 +26,11 @@ def test_material_properties(cls):
 @pytest.mark.parametrize(
     "cls",
     [
-    OpaqueConstructionProperties,
-    ShadeConstructionProperties,
-    WindowConstructionProperties,
-    WindowConstructionShadeProperties,
-    ]
+        OpaqueConstructionProperties,
+        ShadeConstructionProperties,
+        WindowConstructionProperties,
+        WindowConstructionShadeProperties,
+    ],
 )
 def test_to_dict_from_dict_round_trip(cls):
     hb_obj = cls(None)
@@ -43,11 +42,11 @@ def test_to_dict_from_dict_round_trip(cls):
 @pytest.mark.parametrize(
     "cls",
     [
-    OpaqueConstructionProperties,
-    ShadeConstructionProperties,
-    WindowConstructionProperties,
-    WindowConstructionShadeProperties,
-    ]
+        OpaqueConstructionProperties,
+        ShadeConstructionProperties,
+        WindowConstructionProperties,
+        WindowConstructionShadeProperties,
+    ],
 )
 def test_duplicate(cls):
     hb_obj = cls(None)

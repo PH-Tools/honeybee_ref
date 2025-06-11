@@ -86,9 +86,9 @@ class ImageReference(object):
         if not isinstance(other, ImageReference):
             return False
         return (
-            self.identifier == other.identifier and
-            self.thumbnail_image_uri == other.thumbnail_image_uri and
-            self.full_size_image_uri == other.full_size_image_uri
+            self.identifier == other.identifier
+            and self.thumbnail_image_uri == other.thumbnail_image_uri
+            and self.full_size_image_uri == other.full_size_image_uri
         )
 
     def __str__(self):

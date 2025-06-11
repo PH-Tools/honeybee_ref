@@ -74,7 +74,7 @@ class DocumentReference(object):
         new_obj.thumbnail_image_uri = self.thumbnail_image_uri
         new_obj.full_size_image_uri = self.full_size_image_uri
         return new_obj
-    
+
     def __eq__(self, other):
         # type: (object) -> bool
         """Check equality with another object.
@@ -90,16 +90,20 @@ class DocumentReference(object):
         if not isinstance(other, DocumentReference):
             return False
         return (
-            self.identifier == other.identifier and
-            self.document_uri == other.document_uri and
-            self.thumbnail_image_uri == other.thumbnail_image_uri and
-            self.full_size_image_uri == other.full_size_image_uri
+            self.identifier == other.identifier
+            and self.document_uri == other.document_uri
+            and self.thumbnail_image_uri == other.thumbnail_image_uri
+            and self.full_size_image_uri == other.full_size_image_uri
         )
 
     def __str__(self):
         # type: () -> str
         return "{}(identifier={}, document_uri={}, thumbnail_image_uri={}, full_size_image_uri={})".format(
-            self.__class__.__name__, self.identifier, self.document_uri, self.thumbnail_image_uri, self.full_size_image_uri
+            self.__class__.__name__,
+            self.identifier,
+            self.document_uri,
+            self.thumbnail_image_uri,
+            self.full_size_image_uri,
         )
 
     def __repr__(self):

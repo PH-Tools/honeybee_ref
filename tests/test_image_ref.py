@@ -49,4 +49,3 @@ def test_image_reference_duplicate():
     assert duplicated_img_ref.identifier == img_ref.identifier
     assert duplicated_img_ref.thumbnail_image_uri == img_ref.thumbnail_image_uri
     assert duplicated_img_ref.full_size_image_uri == img_ref.full_size_image_uri
-

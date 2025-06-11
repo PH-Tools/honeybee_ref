@@ -53,4 +53,3 @@ def test_document_reference_duplicate():
     assert duplicated_img_ref.document_uri == doc_ref.document_uri
     assert duplicated_img_ref.thumbnail_image_uri == doc_ref.thumbnail_image_uri
     assert duplicated_img_ref.full_size_image_uri == doc_ref.full_size_image_uri
-

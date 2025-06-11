@@ -38,6 +38,7 @@ from honeybee_energy.properties.extension import (
     WindowConstructionShadeProperties,
 )
 
+from honeybee_energy_ref.properties.hb_obj import _HBObjectWithReferences
 
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
@@ -46,7 +47,6 @@ from honeybee_energy.properties.extension import (
 # -----------------------------------------------------------------------------
 # -- Now that Honeybee-Energy is imported, import the relevant HB-Ref classes
 
-from honeybee_energy_ref.properties.hb_obj import _HBObjectWithReferences
 
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
