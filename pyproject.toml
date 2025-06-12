@@ -1,6 +1,6 @@
 [project]
 name = "honeybee-ref"
-version = "0.0.02"
+version = "0.1.01"
 description = "A Honeybee extension for tracking reference information and sources.."
 readme = "README.md"
 requires-python = ">=2.7"
