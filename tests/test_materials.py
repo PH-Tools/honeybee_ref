@@ -56,9 +56,10 @@ def test_material_properties(cls):
     ],
 )
 def test_to_dict_from_dict_round_trip(cls):
+    hb_parent_obj = cls(None)
+
     # -------------------------------------------------------------------------
     # Test empty
-    hb_parent_obj = cls(None)
     d = hb_parent_obj.ref.to_dict()
     hb_obj2 = _HBObjectWithReferences.from_dict(d["ref"], None)
     assert hb_obj2 == hb_parent_obj.ref
@@ -129,10 +130,72 @@ def test_to_dict_from_dict_round_trip(cls):
         EnergyWindowMaterialSimpleGlazSysProperties,
     ],
 )
+def test_reference_status_to_dict_from_dict_round_trip(cls):
+    hb_parent_obj = cls(None)
+        
+    # -------------------------------------------------------------------------
+    # Test with ref status - COMPLETE
+    dup_ref_obj = hb_parent_obj.ref.duplicate()
+    dup_ref_obj.unlock()
+    dup_ref_obj.ref_status = "complete"
+    d = dup_ref_obj.to_dict()
+    new_ref = _HBObjectWithReferences.from_dict(d["ref"], None)
+    assert new_ref == dup_ref_obj
+    assert new_ref.ref_status == "COMPLETE"
+    assert dup_ref_obj.ref_status is not new_ref.ref_status
+
+    # -------------------------------------------------------------------------
+    # Test with ref status - QUESTION
+    dup_ref_obj = hb_parent_obj.ref.duplicate()
+    dup_ref_obj.unlock()
+    dup_ref_obj.ref_status = "question"
+    d = dup_ref_obj.to_dict()
+    new_ref = _HBObjectWithReferences.from_dict(d["ref"], None)
+    assert new_ref == dup_ref_obj
+    assert new_ref.ref_status == "QUESTION"
+    assert dup_ref_obj.ref_status is not new_ref.ref_status
+
+    # -------------------------------------------------------------------------
+    # Test with ref status - MISSING
+    dup_ref_obj = hb_parent_obj.ref.duplicate()
+    dup_ref_obj.unlock()
+    dup_ref_obj.ref_status = "missing"
+    d = dup_ref_obj.to_dict()
+    new_ref = _HBObjectWithReferences.from_dict(d["ref"], None)
+    assert new_ref == dup_ref_obj
+    assert new_ref.ref_status == "MISSING"
+    assert dup_ref_obj.ref_status is not new_ref.ref_status
+
+    # -------------------------------------------------------------------------
+    # Test with ref status - ILLEGAL
+    dup_ref_obj = hb_parent_obj.ref.duplicate()
+    d = dup_ref_obj.to_dict()
+    d["ref"]["ref_status"] = "illegal_status_value"
+    with pytest.raises(ValueError):
+        new_ref = _HBObjectWithReferences.from_dict(d["ref"], None)
+
+
+@pytest.mark.parametrize(
+    "cls",
+    [
+        EnergyMaterialNoMassProperties,
+        EnergyMaterialProperties,
+        EnergyMaterialVegetationProperties,
+        EnergyWindowFrameProperties,
+        EnergyWindowMaterialBlindProperties,
+        EnergyWindowMaterialGasCustomProperties,
+        EnergyWindowMaterialGasMixtureProperties,
+        EnergyWindowMaterialGasProperties,
+        EnergyWindowMaterialGlazingsProperties,
+        EnergyWindowMaterialShadeProperties,
+        EnergyWindowMaterialSimpleGlazSysProperties,
+    ],
+)
 def test_duplicate(cls):
+    hb_obj = cls(None)
+
     # -------------------------------------------------------------------------
     # Test empty
-    hb_obj = cls(None)
     dup = hb_obj.ref.duplicate()
     assert dup == hb_obj.ref
     assert dup is not hb_obj.ref
@@ -179,3 +242,60 @@ def test_duplicate(cls):
     assert dup == dup_ref_obj
     assert dup_ref_obj._external_identifiers is not dup._external_identifiers
     assert dup_ref_obj.user_data is not dup.user_data
+
+
+@pytest.mark.parametrize(
+    "cls",
+    [
+        EnergyMaterialNoMassProperties,
+        EnergyMaterialProperties,
+        EnergyMaterialVegetationProperties,
+        EnergyWindowFrameProperties,
+        EnergyWindowMaterialBlindProperties,
+        EnergyWindowMaterialGasCustomProperties,
+        EnergyWindowMaterialGasMixtureProperties,
+        EnergyWindowMaterialGasProperties,
+        EnergyWindowMaterialGlazingsProperties,
+        EnergyWindowMaterialShadeProperties,
+        EnergyWindowMaterialSimpleGlazSysProperties,
+    ],
+)
+def test_duplicate_reference_status(cls):
+    hb_obj = cls(None)
+
+    # -------------------------------------------------------------------------
+    # Test Ref-Status - COMPLETE
+    dup_ref_obj = hb_obj.ref.duplicate()
+    dup_ref_obj.unlock()
+    dup_ref_obj.ref_status = "complete"
+    dup = dup_ref_obj.duplicate()
+    assert dup == dup_ref_obj
+    assert dup.ref_status == "COMPLETE"
+    assert dup_ref_obj.ref_status is not dup.ref_status
+    
+    # -------------------------------------------------------------------------
+    # Test Ref-Status - QUESTION
+    dup_ref_obj = hb_obj.ref.duplicate()
+    dup_ref_obj.unlock()
+    dup_ref_obj.ref_status = "question"
+    dup = dup_ref_obj.duplicate()
+    assert dup == dup_ref_obj
+    assert dup.ref_status == "QUESTION"
+    assert dup_ref_obj.ref_status is not dup.ref_status
+
+    # -------------------------------------------------------------------------
+    # Test Ref-Status - MISSING
+    dup_ref_obj = hb_obj.ref.duplicate()
+    dup_ref_obj.unlock()
+    dup_ref_obj.ref_status = "missing"
+    dup = dup_ref_obj.duplicate()
+    assert dup == dup_ref_obj
+    assert dup.ref_status == "MISSING"
+    assert dup_ref_obj.ref_status is not dup.ref_status
+
+    # -------------------------------------------------------------------------
+    # Test Ref-Status - ILLEGAL
+    dup_ref_obj = hb_obj.ref.duplicate()
+    dup_ref_obj.unlock()
+    with pytest.raises(ValueError):
+        dup_ref_obj.ref_status = "illegal_status_value"
