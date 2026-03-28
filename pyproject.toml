@@ -1,6 +1,6 @@
 [project]
 name = "honeybee-ref"
-version = "0.2.5"
+version = "0.2.6"
 description = "A Honeybee extension for tracking reference information and sources.."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -61,7 +61,7 @@ line-length = 120
 
 # -- Bump My Version ---------------------------------------------------------------
 [tool.bumpversion]
-current_version = "0.2.5"
+current_version = "0.2.6"
 commit = true
 tag = true
 tag_name = "v{new_version}"
