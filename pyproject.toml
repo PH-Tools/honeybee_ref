@@ -3,12 +3,11 @@ name = "honeybee-ref"
 version = "0.2.01"
 description = "A Honeybee extension for tracking reference information and sources.."
 readme = "README.md"
-requires-python = ">=2.7"
+requires-python = ">=3.10"
 license = "GPL-3.0-or-later"
 authors = [{ name = "Ed May", email = "phtools@bldgtyp.com" }]
 maintainers = [{ name = "Ed May", email = "phtools@bldgtyp.com" }]
 classifiers = [
-    "Programming Language :: Python :: 2.7",
     "Operating System :: OS Independent",
 ]
 keywords = [
@@ -59,3 +58,16 @@ fail_under = 80
 
 [tool.black]
 line-length = 120
+
+# -- Bump My Version ---------------------------------------------------------------
+[tool.bumpversion]
+current_version = "0.2.01"
+commit = true
+tag = true
+tag_name = "v{new_version}"
+commit_message = "bump: version {current_version} -> {new_version} [skip ci]"
+
+[[tool.bumpversion.files]]
+filename = "pyproject.toml"
+search = 'version = "{current_version}"'
+replace = 'version = "{new_version}"'
