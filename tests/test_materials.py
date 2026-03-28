@@ -1,17 +1,13 @@
 import pytest
 from honeybee_energy.properties.extension import (
-    EnergyMaterialNoMassProperties,
-    EnergyMaterialProperties,
-    EnergyMaterialVegetationProperties,
-    EnergyWindowFrameProperties,
+    EnergyMaterialNoMassProperties, EnergyMaterialProperties,
+    EnergyMaterialVegetationProperties, EnergyWindowFrameProperties,
     EnergyWindowMaterialBlindProperties,
     EnergyWindowMaterialGasCustomProperties,
     EnergyWindowMaterialGasMixtureProperties,
-    EnergyWindowMaterialGasProperties,
-    EnergyWindowMaterialGlazingsProperties,
+    EnergyWindowMaterialGasProperties, EnergyWindowMaterialGlazingsProperties,
     EnergyWindowMaterialShadeProperties,
-    EnergyWindowMaterialSimpleGlazSysProperties,
-)
+    EnergyWindowMaterialSimpleGlazSysProperties)
 
 from honeybee_energy_ref.document_ref import DocumentReference
 from honeybee_energy_ref.image_ref import ImageReference

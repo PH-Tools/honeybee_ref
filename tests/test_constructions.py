@@ -1,10 +1,7 @@
 import pytest
 from honeybee_energy.properties.extension import (
-    OpaqueConstructionProperties,
-    ShadeConstructionProperties,
-    WindowConstructionProperties,
-    WindowConstructionShadeProperties,
-)
+    OpaqueConstructionProperties, ShadeConstructionProperties,
+    WindowConstructionProperties, WindowConstructionShadeProperties)
 
 from honeybee_energy_ref.properties.hb_obj import _HBObjectWithReferences
 
