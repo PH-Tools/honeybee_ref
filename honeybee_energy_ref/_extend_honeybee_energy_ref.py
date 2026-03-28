@@ -15,20 +15,27 @@
 # -- Import the Honeybee-Energy Program and HVAC Items
 # -- Import the Honeybee-Energy Materials
 # -- Import the Honeybee-Energy Constructions
-import honeybee_energy
 from honeybee_energy.properties.extension import (
-    AllAirSystemProperties, DOASSystemProperties,
-    EnergyMaterialNoMassProperties, EnergyMaterialProperties,
-    EnergyMaterialVegetationProperties, EnergyWindowFrameProperties,
+    AllAirSystemProperties,
+    DOASSystemProperties,
+    EnergyMaterialNoMassProperties,
+    EnergyMaterialProperties,
+    EnergyMaterialVegetationProperties,
+    EnergyWindowFrameProperties,
     EnergyWindowMaterialBlindProperties,
     EnergyWindowMaterialGasCustomProperties,
     EnergyWindowMaterialGasMixtureProperties,
-    EnergyWindowMaterialGasProperties, EnergyWindowMaterialGlazingsProperties,
+    EnergyWindowMaterialGasProperties,
+    EnergyWindowMaterialGlazingsProperties,
     EnergyWindowMaterialShadeProperties,
-    EnergyWindowMaterialSimpleGlazSysProperties, HeatCoolSystemProperties,
-    IdealAirSystemProperties, OpaqueConstructionProperties,
-    ShadeConstructionProperties, WindowConstructionProperties,
-    WindowConstructionShadeProperties)
+    EnergyWindowMaterialSimpleGlazSysProperties,
+    HeatCoolSystemProperties,
+    IdealAirSystemProperties,
+    OpaqueConstructionProperties,
+    ShadeConstructionProperties,
+    WindowConstructionProperties,
+    WindowConstructionShadeProperties,
+)
 
 from honeybee_energy_ref.properties.hb_obj import _HBObjectWithReferences
 

@@ -7,7 +7,7 @@ from copy import copy
 from uuid import uuid4
 
 try:
-    from typing import Any
+    pass
 except Exception:
     pass  # IronPython 2.7
 
@@ -133,9 +133,9 @@ class _HBObjectWithReferences(object):
     def external_identifiers(self):
         # type: () -> dict[str, str]
         """Dictionary of any external 'identifiers' associated with the object.
-        
-        These 'identifiers' can be used to connect or reference this object to any external 
-        systems or databases. The dict should use a 'key' to identify the domain of the 
+
+        These 'identifiers' can be used to connect or reference this object to any external
+        systems or databases. The dict should use a 'key' to identify the domain of the
         identifier and a 'value' to store the actual identifier itself. For instance:
 
         {'ph_nav': 'ref12345'}
@@ -186,7 +186,7 @@ class _HBObjectWithReferences(object):
         # type: (str) -> None
 
         input_ref_status = status.upper().strip()
-        if not input_ref_status in self.REF_STATUS:
+        if input_ref_status not in self.REF_STATUS:
             raise ValueError(
                 "Invalid status. Expected one of: {}. Got: {}".format(", ".join(self.REF_STATUS), input_ref_status)
             )

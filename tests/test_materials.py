@@ -1,13 +1,17 @@
 import pytest
 from honeybee_energy.properties.extension import (
-    EnergyMaterialNoMassProperties, EnergyMaterialProperties,
-    EnergyMaterialVegetationProperties, EnergyWindowFrameProperties,
+    EnergyMaterialNoMassProperties,
+    EnergyMaterialProperties,
+    EnergyMaterialVegetationProperties,
+    EnergyWindowFrameProperties,
     EnergyWindowMaterialBlindProperties,
     EnergyWindowMaterialGasCustomProperties,
     EnergyWindowMaterialGasMixtureProperties,
-    EnergyWindowMaterialGasProperties, EnergyWindowMaterialGlazingsProperties,
+    EnergyWindowMaterialGasProperties,
+    EnergyWindowMaterialGlazingsProperties,
     EnergyWindowMaterialShadeProperties,
-    EnergyWindowMaterialSimpleGlazSysProperties)
+    EnergyWindowMaterialSimpleGlazSysProperties,
+)
 
 from honeybee_energy_ref.document_ref import DocumentReference
 from honeybee_energy_ref.image_ref import ImageReference
@@ -128,7 +132,7 @@ def test_to_dict_from_dict_round_trip(cls):
 )
 def test_reference_status_to_dict_from_dict_round_trip(cls):
     hb_parent_obj = cls(None)
-        
+
     # -------------------------------------------------------------------------
     # Test with ref status - COMPLETE
     dup_ref_obj = hb_parent_obj.ref.duplicate()
@@ -268,7 +272,7 @@ def test_duplicate_reference_status(cls):
     assert dup == dup_ref_obj
     assert dup.ref_status == "COMPLETE"
     assert dup_ref_obj.ref_status is not dup.ref_status
-    
+
     # -------------------------------------------------------------------------
     # Test Ref-Status - QUESTION
     dup_ref_obj = hb_obj.ref.duplicate()

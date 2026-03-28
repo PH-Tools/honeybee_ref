@@ -1,13 +1,17 @@
 import pytest
 from honeybee_energy.properties.extension import (
-    EnergyMaterialNoMassProperties, EnergyMaterialProperties,
-    EnergyMaterialVegetationProperties, EnergyWindowFrameProperties,
+    EnergyMaterialNoMassProperties,
+    EnergyMaterialProperties,
+    EnergyMaterialVegetationProperties,
+    EnergyWindowFrameProperties,
     EnergyWindowMaterialBlindProperties,
     EnergyWindowMaterialGasCustomProperties,
     EnergyWindowMaterialGasMixtureProperties,
-    EnergyWindowMaterialGasProperties, EnergyWindowMaterialGlazingsProperties,
+    EnergyWindowMaterialGasProperties,
+    EnergyWindowMaterialGlazingsProperties,
     EnergyWindowMaterialShadeProperties,
-    EnergyWindowMaterialSimpleGlazSysProperties)
+    EnergyWindowMaterialSimpleGlazSysProperties,
+)
 
 
 @pytest.mark.parametrize(
