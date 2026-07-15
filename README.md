@@ -26,6 +26,9 @@ This package is [hosted on PyPi](https://pypi.org/project/honeybee-ref/). To ins
 <details>
 <summary><strong>Development:</strong></summary>
 
+### Development [Orientation]:
+For contributor/agent orientation, see [`CLAUDE.md`](CLAUDE.md) and the [`context/`](context/) folder (PRD, architecture, coding standards, tech stack). Note: this package must remain **IronPython 2.7** compatible — it is loaded into Rhino via the Honeybee-PH plugins.
+
 ### Development [Local]:
 honeybee-ref is free and open-source. We welcome any and all thoughts, opinions, and contributions! To get setup for local development:
 1. **Fork** this GitHub repository to your own GitHub account.
