@@ -2,7 +2,7 @@
 
 A Honeybee extension that adds a `ref` property slot to Honeybee-Energy objects for tracking **source and reference data** (document URIs, images, external identifiers) attached to Honeybee objects. Published on PyPI as `honeybee-ref`. Source: https://github.com/PH-Tools/honeybee_ref
 
-> **Runtime constraint:** must run under **IronPython 2.7** (it is loaded into Rhino/Grasshopper via the Honeybee-PH plugins) as well as CPython 3.10+. Source files carry a `# -*- Python Version: 2.7 -*-` header. See `context/CODING_STANDARDS.md`.
+> **Runtime constraint:** must run under **IronPython 2.7** (it is loaded into Rhino/Grasshopper via the Honeybee-PH plugins) as well as CPython 3.10+. Source files carry a `# -*- Python Version: 2.7 -*-` header. Apply the **ironpython-27-compatibility** skill; repo specifics in `context/CODING_STANDARDS.md`.
 
 ## What this repo is
 
@@ -28,7 +28,7 @@ Full context index: `context/README.md`. (This repo has no `docs/` hub spoke.)
 ## Hard rules
 
 1. **IronPython 2.7 compatibility is mandatory.** No f-strings/`pathlib`/modern stdlib; comment-style type hints; guard `typing` imports. Keep the `# -*- Python Version: 2.7 -*-` header on source files.
-2. **Backward-compatible serialization.** New fields get a default in `__init__`, are written in `to_dict()`, read with `_input_dict.get("key", default)` in `from_dict()`, and copied in `duplicate()`. Old HBJSON must still load.
+2. **Backward-compatible serialization.** New fields get a default in `__init__`, are written in `to_dict()`, read with `_input_dict.get("key", default)` in `from_dict()`, and copied in `duplicate()`. Old HBJSON must still load. Apply the **hbjson-serialization-contract** skill.
 3. **Attach data via the `_extend`/`properties` mechanism**, not by monkey-patching around it.
 4. **Verify before closeout:** `python -m pytest`.
 

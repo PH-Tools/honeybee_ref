@@ -7,27 +7,33 @@ STATUS: CANONICAL ENGINEERING STANDARD
 
 ## 1. IronPython 2.7 compatibility (mandatory)
 
-Loaded into Rhino/Grasshopper — must run under IronPython 2.7 and CPython 3.10+.
+The generic dual-runtime rules (banned syntax and modules, comment-style type
+hints, guarded `typing` imports, defensive third-party imports, and the lint
+settings they imply) live in the **ironpython-27-compatibility** skill. Apply it
+before editing anything on the Rhino load path. Only this repo's specifics are
+recorded below.
 
-- No f-strings — use `.format()`. No `pathlib`/modern-stdlib-only features.
-- Comment-style type hints (`# type: (str) -> dict`), not inline annotations.
-- Guard `typing` imports (`try: from typing import ... except ImportError: pass`).
-- Keep the `# -*- Python Version: 2.7 -*-` header on source files.
+Loaded into Rhino/Grasshopper. The whole package is on the load path.
+
+Keep the `# -*- Python Version: 2.7 -*-` header on source files.
 
 ## 2. Backward-compatible serialization
 
-Reference objects round-trip through HBJSON. When adding a field:
+The HBJSON round-trip contract (four steps for a new field, when `.get()` is
+required, mutable constructor ownership, `duplicate()` recursion) and the
+`_extend`/`properties` attachment mechanism live in the
+**hbjson-serialization-contract** skill. Apply it before adding or changing any
+field on a model class.
 
-1. Add it in `__init__` with a default.
-2. Write it in `to_dict()`.
-3. Read it in `from_dict()` with `_input_dict.get("key", default)` — never bare `[...]` access.
-4. Copy it in `duplicate()` where present.
-
-Old HBJSON without the key must still load.
+Reference objects round-trip through HBJSON. `duplicate()` exists on some
+`honeybee_ref` objects but not all; copy new fields there where it is present.
 
 ## 3. Use the `_extend`/`properties` mechanism
 
-Attach the `.ref` data through Honeybee's `properties` extension API (registered in `_extend_honeybee_energy_ref.py`); the property class in `properties/` owns the serialization. Don't bypass this.
+
+The `.ref` data attaches through Honeybee's `properties` extension API,
+registered in `_extend_honeybee_energy_ref.py`. The property class in
+`properties/` owns the serialization.
 
 ## 4. Formatting
 
